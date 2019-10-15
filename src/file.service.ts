@@ -1,6 +1,9 @@
 import { IncomingMessage, ServerResponse } from "http";
 import { parse } from 'url';
 import { tulisLogs, bacaLogs, getTime } from './file';
+import { SQLite, SISWA_SORT_BY, SORT_DIRECTION, Siswa } from './sqlite';
+
+const dbSiswa = new SQLite('./assets/siswa.db');
 
 export function viewSiswa(req: IncomingMessage, res: ServerResponse){
     const url = parse(req.url, true);
@@ -53,6 +56,11 @@ export function addSiswa(req: IncomingMessage, res: ServerResponse){
     //write logs
     const log = getTime()+`- User menambahkan siswa ${query['name']}.\n`;
     const status = tulisLogs(log);
+
+    //post to database
+    const data: Siswa = {name: query['name'].toString(), classroom: query['classroom'].toString()};
+    const statusDb = dbSiswa.insert(data);
+    console.log(statusDb);
     if(!status) {
         res.statusCode = 400;
         res.end();
