@@ -105,13 +105,13 @@ function viewLogs(req, res) {
     var url = url_1.parse(req.url, true);
     var query = url.query;
     console.log(query);
-    var status = file_1.bacaLogs();
-    if (!status) {
+    var result = file_1.bacaLogs();
+    if (!result.status) {
         res.statusCode = 400;
         res.end();
         return;
     }
-    res.write(status);
+    res.write(result.data);
     res.end();
 }
 exports.viewLogs = viewLogs;

@@ -21,7 +21,7 @@ var server = http_1.createServer(function (req, res) {
         case '/siswa/update':
             file_service_1.editSiswa(req, res);
             break;
-        case 'logs':
+        case '/logs':
             file_service_1.viewLogs(req, res);
             break;
         default:

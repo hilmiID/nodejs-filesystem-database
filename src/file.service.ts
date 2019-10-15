@@ -111,13 +111,13 @@ export function viewLogs(req: IncomingMessage, res: ServerResponse){
     const query = url.query;
     console.log(query)
 
-    const status = bacaLogs();
-    if(!status) {
+    const result = bacaLogs();
+    if(!result.status) {
         res.statusCode = 400;
         res.end();
         return;
     }
 
-    res.write(status);
+    res.write(result.data);
     res.end();
 }

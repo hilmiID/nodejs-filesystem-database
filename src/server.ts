@@ -20,7 +20,7 @@ const server = createServer((req, res) => {
         case '/siswa/update':
             editSiswa(req, res);
             break;
-        case 'logs':
+        case '/logs':
             viewLogs(req, res);
             break;
         default:
