@@ -1,6 +1,6 @@
 import {createServer} from 'http'
 import {parse} from 'url'
-import {viewLogs, viewSiswa, listSiswa, addSiswa, deleteSiswa, editSiswa} from './file.service'
+import {viewLogs, viewSiswa, listSiswa, addSiswa, deleteSiswa, updateSiswa} from './file.service'
 
 const server = createServer((req, res) => {
     const url = parse(req.url);
@@ -18,7 +18,7 @@ const server = createServer((req, res) => {
             deleteSiswa(req, res);
             break;
         case '/siswa/update':
-            editSiswa(req, res);
+            updateSiswa(req, res);
             break;
         case '/logs':
             viewLogs(req, res);

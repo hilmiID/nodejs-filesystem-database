@@ -2,10 +2,11 @@ import { IncomingMessage, ServerResponse } from "http";
 import { parse } from 'url';
 import { tulisLogs, bacaLogs, getTime } from './file';
 import { SQLite, SISWA_SORT_BY, SORT_DIRECTION, Siswa } from './sqlite';
+import {getRow} from './connect';
 
 const dbSiswa = new SQLite('./assets/siswa.db');
 
-export function viewSiswa(req: IncomingMessage, res: ServerResponse){
+export async function viewSiswa(req: IncomingMessage, res: ServerResponse){
     const url = parse(req.url, true);
     const query = url.query;
 
@@ -18,6 +19,16 @@ export function viewSiswa(req: IncomingMessage, res: ServerResponse){
     //write logs
     const log = getTime()+'- User melihat detail siswa.\n';
     const status = tulisLogs(log);
+    //get data from database
+    const name = query['name'].toString();
+    try{
+        const result = await dbSiswa.getRowPromise(name);
+        res.write(JSON.stringify(result));
+    } catch(err) {
+        console.log('promise getRow error: '+err);
+        res.write(err.toString());
+    }
+    //check status
     if(!status) {
         res.statusCode = 400;
         res.end();
@@ -27,7 +38,7 @@ export function viewSiswa(req: IncomingMessage, res: ServerResponse){
     res.end();
 }
 
-export function listSiswa(req: IncomingMessage, res: ServerResponse){
+export async function listSiswa(req: IncomingMessage, res: ServerResponse){
     const url = parse(req.url, true);
     const query = url.query;
 
@@ -39,11 +50,20 @@ export function listSiswa(req: IncomingMessage, res: ServerResponse){
         res.end();
         return;
     }
+    //get data from database
+    try{
+        const result = await dbSiswa.getRowsPromise();
+        res.write(JSON.stringify(result));
+    } catch(err) {
+        console.log('promise getRow error: '+err);
+        res.write(err.toString());
+    }
+    
     console.log('Sukses menulis logs.');
     res.end();
 }
 
-export function addSiswa(req: IncomingMessage, res: ServerResponse){
+export async function addSiswa(req: IncomingMessage, res: ServerResponse){
     const url = parse(req.url, true);
     const query = url.query;
 
@@ -59,8 +79,14 @@ export function addSiswa(req: IncomingMessage, res: ServerResponse){
 
     //post to database
     const data: Siswa = {name: query['name'].toString(), classroom: query['classroom'].toString()};
-    const statusDb = dbSiswa.insert(data);
-    console.log(statusDb);
+    try{
+        const result = await dbSiswa.insertPromise(data);
+        res.write(result);
+    }catch(err){
+        console.log('promise insert error: '+err);
+        res.write(err.toString());
+    }
+
     if(!status) {
         res.statusCode = 400;
         res.end();
@@ -70,7 +96,7 @@ export function addSiswa(req: IncomingMessage, res: ServerResponse){
     res.end();
 }
 
-export function deleteSiswa(req: IncomingMessage, res: ServerResponse){
+export async function deleteSiswa(req: IncomingMessage, res: ServerResponse){
     const url = parse(req.url, true);
     const query = url.query;
 
@@ -88,11 +114,20 @@ export function deleteSiswa(req: IncomingMessage, res: ServerResponse){
         res.end();
         return;
     }
+    //delete from database
+    try{
+        const result = await dbSiswa.deletePromise(query['name'].toString());
+        res.write(result);
+    }catch(err){
+        console.log('promise delete error: '+err);
+        res.write(err.toString());
+    }
+
     console.log('Sukses menulis logs.');
     res.end();
 }
 
-export function editSiswa(req: IncomingMessage, res: ServerResponse){
+export async function updateSiswa(req: IncomingMessage, res: ServerResponse){
     const url = parse(req.url, true);
     const query = url.query;
 
@@ -110,6 +145,16 @@ export function editSiswa(req: IncomingMessage, res: ServerResponse){
         res.end();
         return;
     }
+    //post to database
+    const data: Siswa = {name: query['name'].toString(), classroom: query['classroom'].toString()};
+    try{
+        const result = await dbSiswa.updatePromise(data);
+        res.write(result);
+    }catch(err){
+        console.log('promise update error: '+err);
+        res.write(err.toString());
+    }
+
     console.log('Sukses menulis logs.');
     res.end();
 }

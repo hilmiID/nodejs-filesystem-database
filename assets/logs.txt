@@ -7,3 +7,54 @@
 15-10-2019 16:4:32- User menambahkan siswa julio.
 15-10-2019 16:6:17- User menambahkan siswa julio.
 15-10-2019 16:7:40- User menambahkan siswa julio.
+15-10-2019 16:8:32- User menambahkan siswa julio.
+15-10-2019 16:17:40- User melihat detail siswa.
+15-10-2019 16:17:59- User melihat detail siswa.
+15-10-2019 16:19:11- User melihat detail siswa.
+15-10-2019 16:42:23- User melihat detail siswa.
+15-10-2019 16:43:15- User melihat detail siswa.
+15-10-2019 16:44:19- User melihat detail siswa.
+15-10-2019 16:57:6- User melihat detail siswa.
+15-10-2019 16:58:6- User melihat detail siswa.
+15-10-2019 16:59:8- User melihat detail siswa.
+15-10-2019 17:0:16- User melihat detail siswa.
+15-10-2019 17:1:34- User melihat detail siswa.
+15-10-2019 18:46:2- User melihat detail siswa.
+15-10-2019 18:47:51- User melihat detail siswa.
+15-10-2019 18:49:19- User melihat detail siswa.
+15-10-2019 18:50:28- User melihat detail siswa.
+15-10-2019 18:51:27- User melihat detail siswa.
+15-10-2019 18:51:50- User melihat detail siswa.
+15-10-2019 18:52:34- User melihat detail siswa.
+15-10-2019 18:54:1- User melihat detail siswa.
+15-10-2019 18:55:8- User melihat detail siswa.
+15-10-2019 18:55:47- User melihat detail siswa.
+15-10-2019 18:56:4- User melihat detail siswa.
+15-10-2019 18:56:52- User melihat detail siswa.
+15-10-2019 20:1:41- User melihat detail siswa.
+15-10-2019 20:5:23- User melihat detail siswa.
+15-10-2019 20:5:43- User melihat detail siswa.
+15-10-2019 20:6:27- User melihat detail siswa.
+15-10-2019 20:8:28- User melihat detail siswa.
+15-10-2019 20:8:47- User melihat detail siswa.
+15-10-2019 20:9:26- User melihat detail siswa.
+15-10-2019 20:10:2- User melihat detail siswa.
+15-10-2019 20:16:52- User melihat list siswa.
+15-10-2019 20:18:35- User melihat list siswa.
+15-10-2019 20:18:50- User melihat list siswa.
+15-10-2019 20:21:57- User melihat list siswa.
+15-10-2019 20:22:53- User melihat list siswa.
+15-10-2019 20:24:54- User melihat list siswa.
+15-10-2019 20:34:59- User menambahkan siswa juda.
+15-10-2019 20:40:50- User menambahkan siswa juda.
+15-10-2019 20:47:25- User menghapus siswa julio.
+15-10-2019 20:48:31- User menghapus siswa julio.
+15-10-2019 20:48:58- User menghapus siswa julio.
+15-10-2019 20:49:22- User melihat list siswa.
+15-10-2019 20:56:41- User mengubah kelas judo menjadi undefined.
+15-10-2019 20:57:30- User mengubah kelas judo menjadi undefined.
+15-10-2019 20:58:5- User mengubah kelas judo menjadi undefined.
+15-10-2019 20:58:10- User melihat list siswa.
+15-10-2019 20:58:39- User melihat list siswa.
+15-10-2019 20:59:6- User mengubah kelas juda menjadi undefined.
+15-10-2019 20:59:15- User melihat list siswa.

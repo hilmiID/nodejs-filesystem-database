@@ -19,7 +19,7 @@ var server = http_1.createServer(function (req, res) {
             file_service_1.deleteSiswa(req, res);
             break;
         case '/siswa/update':
-            file_service_1.editSiswa(req, res);
+            file_service_1.updateSiswa(req, res);
             break;
         case '/logs':
             file_service_1.viewLogs(req, res);
